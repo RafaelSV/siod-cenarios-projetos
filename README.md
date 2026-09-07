@@ -12,7 +12,7 @@
 
 **Dor:** Sem uma ferramenta que estime a evolução sob diferentes condições, o responsável decide com base no plano e na experiência, sem quantificar como as incertezas podem comprometer a conclusão. Isso dificulta avaliar a necessidade de revisar prazos ou capacidade antes da execução.
 
-**Dados:** A planilha `EV_00000.xlsx` descreve um projeto de exemplo com sete atividades, equipe, esforço e predecessoras. O simulador do mestrado já produziu 10.000 cenários dessa estrutura, com 61 instantes (0 a 60 tu), em MAT/NPZ e metadados JSON. Este repositório disponibiliza a planilha e uma amostra de 100 cenários em CSV. As trajetórias são sintéticas; ainda não há histórico real de progresso confirmado para validação.
+**Dados:** A planilha `EV_00000.xlsx` descreve um projeto de exemplo com sete atividades, equipe, esforço e predecessoras. O simulador do mestrado já produziu 10.000 cenários dessa estrutura, com 61 instantes (0 a 60 tu), em MAT/NPZ e metadados JSON. Este repositório disponibiliza a planilha, o recorte de 100 cenários em `data/simulacoes_100/` e um CSV para consulta. As trajetórias são sintéticas; ainda não há histórico real de progresso confirmado para validação.
 
 **Resultado esperado:** Apoiar a revisão de cronograma e capacidade, identificando condições em que o projeto não conclui no horizonte e comparando alternativas de planejamento. A escolha da intervenção permanece com o responsável pelo projeto.
 
@@ -48,3 +48,5 @@ O simulador representa a dinâmica de execução e gera os dados da proposta. A 
 **Maior risco:** o modelo pode não representar adequadamente a execução real. **Teste da semana:** selecionar condições de referência, variar um parâmetro por vez no simulador e verificar a coerência das curvas e do indicador de conclusão. Esse teste avalia consistência interna; validação operacional dependerá de medições reais e calibração.
 
 [Dados e limitações](docs/dados.md) · [Apresentação](docs/apresentacao.md) · [Execução](docs/execucao.md)
+
+[Atividade 01 — Caracterização dos dados](docs/atividade-01-dados.md) · [Notebook de exploração](notebooks/01_exploracao_dados.ipynb)

@@ -1,5 +1,7 @@
 *.pdf binary
 *.xlsx binary
 *.png binary
+*.npz binary
 *.csv -text whitespace=cr-at-eol
 *.json -text whitespace=cr-at-eol
+*.ipynb -text whitespace=cr-at-eol

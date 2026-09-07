@@ -59,5 +59,8 @@
   "planilha_exemplo": "data/EV_00000.xlsx",
   "planilha_sha256": "96e65da2519e8b09c1fb8406635cb022e5d9e024e75bc2587aa74a6bb11a5fae",
   "planilha_copia_integral_sem_edicao": true,
-  "restricao": "A seleção sistemática é demonstrativa e não preserva necessariamente a distribuição de desfechos. Não inferir probabilidades reais."
+  "restricao": "A seleção sistemática é demonstrativa e não preserva necessariamente a distribuição de desfechos. Não inferir probabilidades reais.",
+  "simulacoes_npz": "data/simulacoes_100/dataset_projeto.npz",
+  "simulacoes_npz_sha256": "8cabf87d4fabbb8e4f8d6c0e84200cf01d6aad6aca2a8993ab9600010374ab41",
+  "simulacoes_metadata_sha256": "9c6d699172abfc51295f9ed54e4721b48dc755030f692550c563816fe453a11b"
 }
