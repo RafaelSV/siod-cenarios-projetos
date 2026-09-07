@@ -1,0 +1,63 @@
+{
+  "natureza": "Dados sintéticos produzidos pelo simulador do mestrado",
+  "origem_relativa": "Resultados_MC/20260818_225211/Dataset_Redes_Python/dataset_projeto.npz",
+  "origem_sha256": "9efd962dcb60d0b43436fddb57a8ded401b9535ceea70aaa4daf18e98fc6e237",
+  "n_simulacoes_origem": 10000,
+  "n_tarefas": 7,
+  "n_instantes": 61,
+  "entradas": [
+    "Expected_Rew",
+    "Expected_WU",
+    "PCronograma",
+    "PGestor",
+    "Variacao_Capacidade_Base_Pct",
+    "SimTime"
+  ],
+  "saidas_origem": [
+    "WTD",
+    "WD",
+    "WRew",
+    "WU",
+    "WPCron",
+    "WPGestor",
+    "WRemaining",
+    "PercAccomplished",
+    "ProdutRequerida",
+    "ProdutEsperada",
+    "RequiredWRate",
+    "FractionComplete",
+    "FractionReported",
+    "TaskDelay",
+    "ProjectTimeRemaining",
+    "TaskTimeRemaining",
+    "Da",
+    "FTA",
+    "TWA"
+  ],
+  "selecao": "índices NumPy 0, 100, ..., 9900; base zero; sem filtro por desfecho",
+  "n_cenarios_amostra": 100,
+  "n_registros_amostra": 6100,
+  "concluidos_origem": 8674,
+  "nao_concluidos_origem": 1326,
+  "concluidos_amostra": 85,
+  "nao_concluidos_amostra": 15,
+  "ausencias_tempo_conclusao_origem": 1326,
+  "split_contagens": {
+    "train": 7000,
+    "validation": 1500,
+    "test": 1500
+  },
+  "entradas_saidas_finitas": true,
+  "split_sem_sobreposicao": true,
+  "cadastro_sigitec_linhas_com_primeira_coluna_preenchida": {
+    "Projetos": 10,
+    "Equipe_executora": 144,
+    "Atividades_etapas": 155
+  },
+  "amostra_sha256": "4b0df850ccb3b837df8c75b1cb260104ef783a93c754e4d196d4824c4657429e",
+  "atividades_sha256": "a50172fd1c0a37e545268555b9662867620544fef7ae02a27cb7483c659d597e",
+  "planilha_exemplo": "data/EV_00000.xlsx",
+  "planilha_sha256": "96e65da2519e8b09c1fb8406635cb022e5d9e024e75bc2587aa74a6bb11a5fae",
+  "planilha_copia_integral_sem_edicao": true,
+  "restricao": "A seleção sistemática é demonstrativa e não preserva necessariamente a distribuição de desfechos. Não inferir probabilidades reais."
+}

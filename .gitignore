@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+*.pyc
+work/
+.env
+*.mat
+*.npz
+*.xlsx
+!data/EV_00000.xlsx
