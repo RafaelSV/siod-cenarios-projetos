@@ -12,7 +12,7 @@ Os dados já estão disponíveis localmente. Sua geração é parte da proposta:
 
 - `data/simulacoes_100/dataset_projeto.npz`: recorte dos 100 cenários, preservando entradas, 19 saídas, indicadores de conclusão e IDs originais. O notebook da Atividade 01 lê esta cópia local; os nomes dos campos estão em `data/simulacoes_100/metadata.json`.
 - `data/cenarios.csv`: 100 cenários, 6.100 registros, 10 colunas. Seleção dos índices NumPy 0, 100, ..., 9900, sem seleção por desfecho. Cada linha representa um instante de um cenário.
-- `data/EV_00000.xlsx`: projeto de exemplo, com as abas `TabelaSIGITEC`, `Projeto`, `Equipe` e `Atividades`. Os nomes dos membros e descrições de atividades são genéricos (`Name 01`, `Descrição Atividade 1` etc.). A planilha inclui fórmulas, predecessoras e parâmetros de planejamento.
+- `data/EV_00000.xlsx`: projeto de exemplo, com as abas `Projeto`, `Equipe` e `Atividades`. Os nomes dos membros e descrições de atividades são genéricos (`Name 01`, `Descrição Atividade 1` etc.). A planilha inclui fórmulas, predecessoras e parâmetros de planejamento. A aba `TabelaSIGITEC` foi removida preventivamente para reduzir o risco de exposição de dados sigilosos.
 - `data/atividades.csv`: sete atividades e seis atributos numéricos extraídos de `Modelo/EV_00000.xlsx`, para leitura rápida. Não inclui a rede de predecessoras. A planilha de exemplo preserva a estrutura completa do arquivo de entrada.
 - `data/proveniencia.json`: regra de seleção, contagens verificadas e hashes SHA-256 da fonte NPZ e dos CSVs.
 

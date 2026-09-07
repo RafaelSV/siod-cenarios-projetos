@@ -24,7 +24,7 @@ A seleção toma os índices NumPy **0, 100, 200, ..., 9900** do conjunto origin
 | Dimensão da amostra | 100 cenários; X com dimensão (100, 61, 6), Y com (100, 61, 19). O notebook seleciona 10 colunas e produz 6.100 linhas em memória. NPZ de 289.088 bytes; CSV de 565.695 bytes |
 | Dimensão da origem | 10.000 cenários da mesma estrutura de projeto; contagem registrada em `data/proveniencia.json` |
 | Intervalo temporal | 0 a 60 tu, com passo de 1 tu e 61 instantes por cenário |
-| Excel | 27.810 bytes; abas `TabelaSIGITEC`, `Projeto`, `Equipe` e `Atividades`; cadastro de um projeto, quatro membros de exemplo e sete atividades |
+| Excel | 20.752 bytes; abas `Projeto`, `Equipe` e `Atividades`; cadastro de um projeto, quatro membros de exemplo e sete atividades |
 | Atualização | Por execução de novos experimentos; sem periodicidade fixa de coleta |
 | Restrições | Somente o exemplo e resultados sintéticos integram a entrega; código do simulador e cadastros de outros projetos não são disponibilizados |
 | Rastreabilidade | Hashes SHA-256 do NPZ, metadados e Excel; correspondência numérica com o CSV existente |
@@ -52,7 +52,7 @@ O cadastro do projeto ocupa `Projeto!A2:H2`, a equipe principal `Equipe!A2:M5` e
 | IDs de atividade ou membro duplicados | 0 nos blocos principais |
 | Duração e esforço das atividades | Duração = término − início; esforço = duração × taxa, dentro da tolerância numérica |
 | Predecessoras | Sem referências inválidas, ciclos, autorreferências ou início anterior ao término de predecessor |
-| Fórmulas do Excel | 444 fórmulas; nenhuma sem resultado armazenado e nenhum erro de célula detectado; não houve recálculo |
+| Fórmulas do Excel | 427 fórmulas; nenhuma sem resultado armazenado e nenhum erro de célula detectado; o notebook lê os resultados armazenados. Recálculo de teste após a remoção da aba, com Artifact Tool, sem erros detectados |
 
 Há três cuidados de interpretação e preparação:
 
