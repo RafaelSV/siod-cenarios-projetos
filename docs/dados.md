@@ -14,9 +14,21 @@ Os dados já estão disponíveis localmente. Sua geração é parte da proposta:
 - `data/cenarios.csv`: 100 cenários, 6.100 registros, 10 colunas. Seleção dos índices NumPy 0, 100, ..., 9900, sem seleção por desfecho. Cada linha representa um instante de um cenário.
 - `data/EV_00000.xlsx`: projeto de exemplo, com as abas `Projeto`, `Equipe` e `Atividades`. Os nomes dos membros e descrições de atividades são genéricos (`Name 01`, `Descrição Atividade 1` etc.). A planilha inclui fórmulas, predecessoras e parâmetros de planejamento. A aba `TabelaSIGITEC` foi removida preventivamente para reduzir o risco de exposição de dados sigilosos.
 - `data/atividades.csv`: sete atividades e seis atributos numéricos extraídos de `Modelo/EV_00000.xlsx`, para leitura rápida. Não inclui a rede de predecessoras. A planilha de exemplo preserva a estrutura completa do arquivo de entrada.
-- `data/proveniencia.json`: regra de seleção, contagens verificadas e hashes SHA-256 da fonte NPZ e dos CSVs.
+- `data/proveniencia.json`: regra de seleção, contagens verificadas e hashes SHA-256 da fonte NPZ e dos CSVs. Os hashes são apenas registros informativos de proveniência e não são usados como validação bloqueante pela pipeline.
 
 A amostra contém resultados existentes e tem finalidade demonstrativa. Ela não deve substituir o conjunto completo para treinamento ou estimativas de frequência. O código do simulador e do estimador permanece no ambiente do mestrado; a leitura dos `.mat` e a preparação do dataset desta atividade estão versionadas neste repositório.
+
+## Saídas preparadas pela pipeline
+
+A execução padrão começa no recorte publicado em `data/simulacoes_100/` e grava três arquivos em `data/processed/`:
+
+- `dataset_esn.npz`: entrada técnica para treinamento, com `X` de dimensão `(100, 61, 6)`, `Y` de dimensão `(100, 61, 1)`, identificadores dos cenários e índices de treino, validação e teste;
+- `metadata_esn.json`: nomes dos campos, dimensões, regra do split e médias e desvios necessários para aplicar e inverter a normalização;
+- `resumo_cenarios.csv`: uma linha por cenário, com os cinco parâmetros, conjunto atribuído, progresso final, indicação de conclusão, tempo de conclusão e percentual faltante.
+
+O alvo selecionado é `PercAccomplished`. O split é feito por cenário, com 70 casos para treino, 15 para validação e 15 para teste na amostra publicada. Média e desvio são calculados exclusivamente com o conjunto de treino e depois aplicados aos três conjuntos. Portanto, o NPZ processado é adequado como entrada da etapa de treinamento, enquanto o CSV serve para conferência e análise legível dos resultados.
+
+A pipeline também pode começar diretamente no diretório das simulações `.mat`. Nesse modo, ela lê a estrutura do projeto e as séries temporais em Python, gera o dataset intermediário e continua pela mesma preparação. O modo `generate-dataset` encerra após criar `dataset_projeto.npz` e `metadata.json` na mesma pasta.
 
 ## Dicionário mínimo
 
@@ -47,6 +59,10 @@ O conjunto completo possui 8.674 cenários que atingem 100% até 60 tu e 1.326 q
 As matrizes de entrada e saída do conjunto completo não têm NaN ou infinito. Os 1.326 NaNs em `TempoConclusaoProjeto` correspondem aos cenários sem conclusão observada até o horizonte. Esse indicador não foi imputado. Na demonstração, ele é recalculado como o primeiro instante com `PercAccomplished >= 100`. Ausência de conclusão até 60 tu não significa que o projeto nunca terminará.
 
 Os índices de treino, validação e teste têm 7.000, 1.500 e 1.500 elementos, sem sobreposição e cobrindo os 10.000 cenários. Isso verifica separação entre cenários, mas não prova generalização a novas estruturas de projeto ou a projetos reais.
+
+Na execução publicada da pipeline, os 100 cenários foram processados sem descarte, correção ou alerta. As três saídas foram reabertas e tiveram dimensões e contagens conferidas. A desnormalização recuperou os valores originais dentro da precisão `float32`, e o resumo reproduziu os indicadores calculados diretamente da trajetória de `PercAccomplished`.
+
+O fluxo iniciado nos arquivos `.mat` foi validado com dez simulações. Foram encontradas sete tarefas, 61 instantes e 53 séries em cada arquivo; o dataset intermediário coincidiu com o resultado produzido anteriormente para os mesmos casos. Essa execução valida a reprodução técnica da conversão, mas não substitui a avaliação do conjunto completo nem a validação do simulador com projetos reais.
 
 ## Dados cadastrais disponíveis, não publicados
 
