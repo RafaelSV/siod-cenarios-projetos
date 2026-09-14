@@ -16,7 +16,7 @@ Os dados já estão disponíveis localmente. Sua geração é parte da proposta:
 - `data/atividades.csv`: sete atividades e seis atributos numéricos extraídos de `Modelo/EV_00000.xlsx`, para leitura rápida. Não inclui a rede de predecessoras. A planilha de exemplo preserva a estrutura completa do arquivo de entrada.
 - `data/proveniencia.json`: regra de seleção, contagens verificadas e hashes SHA-256 da fonte NPZ e dos CSVs.
 
-A amostra contém resultados existentes e tem finalidade demonstrativa. Ela não deve substituir o conjunto completo para treinamento ou estimativas de frequência. O código do simulador, do estimador e das redes permanece no ambiente do mestrado.
+A amostra contém resultados existentes e tem finalidade demonstrativa. Ela não deve substituir o conjunto completo para treinamento ou estimativas de frequência. O código do simulador e do estimador permanece no ambiente do mestrado; a leitura dos `.mat` e a preparação do dataset desta atividade estão versionadas neste repositório.
 
 ## Dicionário mínimo
 
@@ -59,8 +59,8 @@ A planilha `Projetos/EVsprojetosSIGITEC/dados_sigitec_projetos.xlsx` tem 10 regi
 | Componente existente | O que foi confirmado | Limite da conclusão |
 |---|---|---|
 | `Modelo/RodaSimulacao.m` | Carrega projeto e parâmetros e chama o simulador | Não recebe automaticamente medições de um sistema real |
-| `GerarDatasetRedes.m` | Converte arquivos de simulação em datasets | Não coleta novos projetos reais |
-| `RedesPython/dados.py` | Monta entradas com parâmetros e tempo; saídas incluem progresso | A rede agregada não recebe como entradas as datas e o plano de qualquer novo projeto |
+| `scripts/gerar_dataset.py` | Lê os `.mat` e monta o dataset de projeto com parâmetros, tempo e resultados | Não coleta novos projetos reais |
+| `scripts/pipeline.py` | Valida, divide e normaliza as sequências para a ESN | A rede agregada ainda não recebe como entradas as datas e o plano de qualquer novo projeto |
 | `RedesPython/config.py` | Configuração padrão prevê `PercAccomplished` com ESN, NARX e LSTM | Comparação entre redes é avaliação computacional do simulador |
 | `estima_parametros/roda_estimador.m` | Por padrão gera nova simulação de `EV_00000` e amostra 0, 5, 10, 15 e 20% do tempo | Essas medições são sintéticas, não evidência real |
 | `estima_parametros/estimador_tasks.m` | Extrai curvas de `P.Runtime(...).SimData` | Uso de histórico real exige entrada compatível, adaptação e validação |

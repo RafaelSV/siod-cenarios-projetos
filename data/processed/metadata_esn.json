@@ -1,0 +1,67 @@
+{
+  "purpose": "Entrada normalizada para treinamento da ESN de progresso do projeto.",
+  "input_names": [
+    "Expected_Rew",
+    "Expected_WU",
+    "PCronograma",
+    "PGestor",
+    "Variacao_Capacidade_Base_Pct",
+    "SimTime"
+  ],
+  "target_names": [
+    "PercAccomplished"
+  ],
+  "tensor_layout": "cenario, instante, variavel",
+  "dtype": "float32",
+  "normalized": true,
+  "n_simulations": 100,
+  "n_timesteps": 61,
+  "input_shape": [
+    100,
+    61,
+    6
+  ],
+  "target_shape": [
+    100,
+    61,
+    1
+  ],
+  "split": {
+    "rule": "Divisão criada por cenário: 70%/15%/15%, regra fixa 42.",
+    "train": 70,
+    "validation": 15,
+    "test": 15
+  },
+  "normalization": {
+    "rule": "Média e desvio calculados somente com os cenários de treino.",
+    "input_mean": [
+      13.729040145874023,
+      15.65811824798584,
+      13.529942512512207,
+      15.732065200805664,
+      4.184659004211426,
+      30.0
+    ],
+    "input_std": [
+      8.968250274658203,
+      8.764744758605957,
+      7.911983966827393,
+      9.231707572937012,
+      14.687657356262207,
+      17.6068172454834
+    ],
+    "target_mean": [
+      68.62438201904297
+    ],
+    "target_std": [
+      27.470537185668945
+    ],
+    "inverse_target": "Y_original = Y_normalizado * target_std + target_mean"
+  },
+  "simulation_id_rule": "IDs lidos do vetor simulation_id do NPZ.",
+  "completion": {
+    "threshold_percent": 100.0,
+    "horizon_tu": 60.0,
+    "time_definition": "Primeiro SimTime com PercAccomplished >= 100."
+  }
+}

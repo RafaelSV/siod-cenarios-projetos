@@ -2,9 +2,11 @@ __pycache__/
 .venv/
 *.pyc
 work/
+data/generated/
 .env
 *.mat
 *.npz
 !data/simulacoes_100/dataset_projeto.npz
+!data/processed/dataset_esn.npz
 *.xlsx
 !data/EV_00000.xlsx
